@@ -1,3 +1,4 @@
+# Decode JSONString to User Defined class instance
 import json
 
 
@@ -30,9 +31,10 @@ def decode_user(dict):
     return dict
 
 
-# Converting Json to normal Python oject
-# this will give a dictionary object
-# user = json.loads(userJson)
-user = json.loads(userJson, object_hook=decode_user)
-print(type(user))
+# Converting JsonString to normal User Defined class object instance
+# user = json.loads(userJson) # this will give a dictionary object
+user = json.loads(
+    userJson, object_hook=decode_user
+)  # returns a user defined class instance
+print(type(user))  # returns <class '__main__.User'>
 print(user.name)

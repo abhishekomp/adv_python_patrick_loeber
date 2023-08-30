@@ -22,7 +22,11 @@ from json import JSONEncoder
 class UserEncoder(JSONEncoder):
     def default(self, o):
         if isinstance(o, User):
-            return {"name": o.name, "age": o.age, o.__class__.__name__: True}
+            return {
+                "name": o.name,
+                "age": o.age,
+                o.__class__.__name__: True,
+            }  # this is a dictionary object
         return JSONEncoder.default(self, o)
 
 
@@ -30,7 +34,7 @@ class UserEncoder(JSONEncoder):
 # Below statement without default will give error. We need to write a custom encoding function
 # userJson = json.dumps(user, default=encode_user)
 
-# 2nd way of encoding Custom object
+# 2nd way of encoding Custom object to JSON String
 # userJson = json.dumps(user, cls=UserEncoder)
 
 # 3rd way of encoding Custom object
