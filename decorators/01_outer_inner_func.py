@@ -10,6 +10,6 @@ def outer_function():
 
 
 myfunc = outer_function()  # inner function is returned waiting to be executed
-myfunc()
-myfunc()
-myfunc()
+myfunc()  # will print Hi
+myfunc()  # will print Hi
+myfunc()  # will print Hi
